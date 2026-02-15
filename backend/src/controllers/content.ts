@@ -11,7 +11,7 @@ export const updateContent = async (req: Request, res: Response) => {
   const updated = await Content.findOneAndUpdate(
     {},
     req.body,
-    { upsert: true, new: true }
+    { upsert: true, returnDocument: "after"  }
   );
 
   res.json(updated);
